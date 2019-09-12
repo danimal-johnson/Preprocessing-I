@@ -50,10 +50,141 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid orange; // TEMPORARY
 }
 
 html, body {
     height: 100%;
 }
 
+/* ***************** End of Meyer Reset ************* */
+/* Variables */
+@header-font: Arial, sans-serif;
+@body-font: 'Alike', serif;
+@body-bg-color: white;
+@item-bg-color: lightgrey;
+@line-color: darkgrey;
+// Responsive Breakpoints
+@phone: 500px;
+
+/* Mixins */
+.column() {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.row() {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between; 
+	align-items: flex-start;
+	@media screen and (max-width: @phone) {
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+/* General */
+html {
+	font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @header-font;	
+}
+h1 { font-size: 3rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 2rem; }
+
+hr { color: line-color; }
+
+body {
+	font-family: @body-font;
+	font-size: 1.6rem;
+	line-height: 1.5;
+	background-color: @body-bg-color;
+}
+
+header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	nav {
+		display: flex;
+		justify-content: space-around;
+		width: 50%;
+		padding: 15px 0;
+		a {
+			color: darkslategrey;
+			text-decoration: none;
+			
+		}
+		@media screen and (max-width: @phone) {
+			width: 100%;
+		}
+	}
+}
+
+.cta {
+	background-color: @item-bg-color;
+	height: 25vh;
+}
+
+.middle-content {
+	.row();
+	div {
+		justify-content: space-evenly; 
+		margin: 5px;
+		// border: 3px solid greenyellow;
+		width: 48%;
+
+		h2 {
+			// background-color: lightcyan;
+			// color: hotpink;
+			// margin-top: 10px;
+			text-align: center;
+		}
+		@media screen and (max-width: @phone) {
+			width: 85%;
+			align-self: center;
+		}
+	}
+	
+}
+
+.history {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 15px;
+	div.row {
+		padding: 10px 0;
+		margin: 0;
+		border-top: 1px solid @line-color;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: nowrap;
+	}
+	div.row:nth-of-type(1) {
+		font-weight: bold;
+	}
+	div.row:nth-of-type(even) {
+		background-color: @item-bg-color;
+	}
+}
+
+footer {
+	background-color: darkslategrey;
+	color: white;
+	margin: 100px 0 0 0;
+	height: 10vh;
+	p {
+		text-align: center;
+		padding-top: 10px;
+	}
+}
