@@ -62,6 +62,9 @@ html, body {
 /* Variables */
 @header-font: Arial, sans-serif;
 @body-font: 'Alike', serif;
+@body-bg-color: white;
+@item-bg-color: lightgrey;
+@line-color: darkgrey;
 // Responsive Breakpoints
 @phone: 500px;
 
@@ -96,11 +99,13 @@ h2 { font-size: 2.4rem; }
 h3 { font-size: 2.2rem; }
 h4 { font-size: 2rem; }
 
+hr { color: line-color; }
+
 body {
 	font-family: @body-font;
 	font-size: 1.6rem;
 	line-height: 1.5;
-	background-color: white;
+	background-color: @body-bg-color;
 }
 
 header {
@@ -125,7 +130,7 @@ header {
 }
 
 .cta {
-	background-color: lightgrey;
+	background-color: @item-bg-color;
 	height: 25vh;
 }
 
@@ -149,6 +154,28 @@ header {
 		}
 	}
 	
+}
+
+.history {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 15px;
+	div.row {
+		padding: 10px 0;
+		margin: 0;
+		border-top: 1px solid @line-color;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: nowrap;
+	}
+	div.row:nth-of-type(1) {
+		font-weight: bold;
+	}
+	div.row:nth-of-type(even) {
+		background-color: @item-bg-color;
+	}
 }
 
 footer {
